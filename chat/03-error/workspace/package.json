@@ -1,0 +1,12 @@
+{
+  "name": "hi-agent-retry-simulation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "storm": "node src/retry-simulation.js immediate",
+    "backoff": "node src/retry-simulation.js backoff",
+    "jitter": "node src/retry-simulation.js jitter",
+    "all": "node src/retry-simulation.js all"
+  }
+}

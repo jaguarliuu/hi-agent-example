@@ -1,0 +1,45 @@
+{
+  "id": "chat-03-error",
+  "title": "1.3 重试风暴模拟器",
+  "snapshotId": "chat-03-error-v1",
+  "snapshotUrl": "/webcontainer-snapshots/chat-03-error.bin",
+  "defaultOpenFile": "src/retry-simulation.js",
+  "startup": {
+    "installCommands": [],
+    "runCommands": [],
+    "env": []
+  },
+  "blocks": [
+    { "blockId": "open-example", "type": "project-open" },
+    {
+      "blockId": "simulation-snippet",
+      "type": "file-snippet",
+      "path": "src/retry-simulation.js",
+      "anchor": "@anchor:retry-simulation"
+    },
+    {
+      "blockId": "run-immediate",
+      "type": "command",
+      "label": "立即重试",
+      "command": { "cmd": "npm", "args": ["run", "storm"] }
+    },
+    {
+      "blockId": "run-backoff",
+      "type": "command",
+      "label": "指数退避",
+      "command": { "cmd": "npm", "args": ["run", "backoff"] }
+    },
+    {
+      "blockId": "run-jitter",
+      "type": "command",
+      "label": "加入 Jitter",
+      "command": { "cmd": "npm", "args": ["run", "jitter"] }
+    },
+    {
+      "blockId": "run-all",
+      "type": "command",
+      "label": "对比三种策略",
+      "command": { "cmd": "npm", "args": ["run", "all"] }
+    }
+  ]
+}
