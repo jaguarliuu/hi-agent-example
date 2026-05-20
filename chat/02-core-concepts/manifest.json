@@ -1,0 +1,74 @@
+{
+  "id": "chat-02-core-concepts",
+  "title": "1.2 让 Chat 流起来",
+  "snapshotId": "chat-02-core-concepts-v3",
+  "snapshotUrl": "/webcontainer-snapshots/chat-02-core-concepts-v3.bin",
+  "defaultOpenFile": "src/main.ts",
+  "startup": {
+    "installCommands": [
+      { "cmd": "npm", "args": ["install"] }
+    ],
+    "runCommands": [],
+    "env": ["OPENAI_BASE_URL", "OPENAI_API_KEY", "OPENAI_MODEL"]
+  },
+  "blocks": [
+    {
+      "blockId": "install-deps",
+      "type": "command",
+      "label": "安装依赖",
+      "command": { "cmd": "npm", "args": ["install"] }
+    },
+    {
+      "blockId": "copy-env",
+      "type": "command",
+      "label": "复制 .env",
+      "command": { "cmd": "cp", "args": [".env.example", ".env"] }
+    },
+    {
+      "blockId": "open-example",
+      "type": "project-open"
+    },
+    {
+      "blockId": "config-snippet",
+      "type": "file-snippet",
+      "path": "src/config.ts",
+      "anchor": "@anchor:load-config"
+    },
+    {
+      "blockId": "provider-snippet",
+      "type": "file-snippet",
+      "path": "src/model-provider.ts",
+      "anchor": "@anchor:create-model"
+    },
+    {
+      "blockId": "client-snippet",
+      "type": "file-snippet",
+      "path": "src/chat-client.ts",
+      "anchor": "@anchor:chat-client"
+    },
+    {
+      "blockId": "session-snippet",
+      "type": "file-snippet",
+      "path": "src/chat-session.ts",
+      "anchor": "@anchor:chat-session"
+    },
+    {
+      "blockId": "main-snippet",
+      "type": "file-snippet",
+      "path": "src/main.ts",
+      "anchor": "@anchor:main-entry"
+    },
+    {
+      "blockId": "run-demo",
+      "type": "command",
+      "label": "运行 Demo",
+      "command": { "cmd": "npm", "args": ["run", "chat"] }
+    },
+    {
+      "blockId": "run-tests",
+      "type": "command",
+      "label": "运行测试",
+      "command": { "cmd": "npm", "args": ["test"] }
+    }
+  ]
+}

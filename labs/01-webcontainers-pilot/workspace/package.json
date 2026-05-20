@@ -1,0 +1,8 @@
+{
+  "name": "hi-agent-labs-webcontainers-pilot",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "chat": "node src/main.js"
+  }
+}
