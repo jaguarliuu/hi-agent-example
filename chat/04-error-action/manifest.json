@@ -1,0 +1,86 @@
+{
+  "id": "chat-04-error-action",
+  "title": "1.4 Hi-Agent异常处理框架",
+  "snapshotId": "chat-04-error-action-v1",
+  "snapshotUrl": "/webcontainer-snapshots/chat-04-error-action.bin",
+  "defaultOpenFile": "src/main.ts",
+  "startup": {
+    "installCommands": [
+      { "cmd": "npm", "args": ["install"] }
+    ],
+    "runCommands": [],
+    "env": ["OPENAI_BASE_URL", "OPENAI_API_KEY", "OPENAI_MODEL"]
+  },
+  "blocks": [
+    {
+      "blockId": "install-deps",
+      "type": "command",
+      "label": "安装依赖",
+      "command": { "cmd": "npm", "args": ["install"] }
+    },
+    {
+      "blockId": "copy-env",
+      "type": "command",
+      "label": "复制 .env",
+      "command": { "cmd": "cp", "args": [".env.example", ".env"] }
+    },
+    {
+      "blockId": "open-example",
+      "type": "project-open"
+    },
+    {
+      "blockId": "error-code-snippet",
+      "type": "file-snippet",
+      "path": "src/errors/agent-error-code.ts",
+      "anchor": "@anchor:agent-error-code"
+    },
+    {
+      "blockId": "exception-snippet",
+      "type": "file-snippet",
+      "path": "src/errors/agent-exception.ts",
+      "anchor": "@anchor:agent-exception"
+    },
+    {
+      "blockId": "config-snippet",
+      "type": "file-snippet",
+      "path": "src/config/open-ai-config.ts",
+      "anchor": "@anchor:load-config"
+    },
+    {
+      "blockId": "client-snippet",
+      "type": "file-snippet",
+      "path": "src/chat/open-ai-chat-client.ts",
+      "anchor": "@anchor:chat-client"
+    },
+    {
+      "blockId": "session-snippet",
+      "type": "file-snippet",
+      "path": "src/chat/open-ai-chat-session.ts",
+      "anchor": "@anchor:chat-session"
+    },
+    {
+      "blockId": "main-snippet",
+      "type": "file-snippet",
+      "path": "src/main.ts",
+      "anchor": "@anchor:main-entry"
+    },
+    {
+      "blockId": "run-tests",
+      "type": "command",
+      "label": "运行测试",
+      "command": { "cmd": "npm", "args": ["test"] }
+    },
+    {
+      "blockId": "run-check",
+      "type": "command",
+      "label": "类型检查",
+      "command": { "cmd": "npm", "args": ["run", "check"] }
+    },
+    {
+      "blockId": "run-demo",
+      "type": "command",
+      "label": "运行 Chat",
+      "command": { "cmd": "npm", "args": ["run", "chat"] }
+    }
+  ]
+}
