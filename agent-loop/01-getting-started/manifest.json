@@ -1,0 +1,50 @@
+{
+  "id": "agent-loop-01-getting-started",
+  "title": "2.1 从ChatBot到AgentBot，只需要一个While循环",
+  "snapshotId": "agent-loop-01-getting-started-v1",
+  "snapshotUrl": "/webcontainer-snapshots/agent-loop-01-getting-started.bin",
+  "defaultOpenFile": "src/tools/mock-server-tool.ts",
+  "startup": {
+    "installCommands": [
+      { "cmd": "npm", "args": ["install"] }
+    ],
+    "runCommands": [],
+    "env": ["OPENAI_BASE_URL", "OPENAI_API_KEY", "OPENAI_MODEL"]
+  },
+  "blocks": [
+    {
+      "blockId": "install-deps",
+      "type": "command",
+      "label": "安装依赖",
+      "command": { "cmd": "npm", "args": ["install"] }
+    },
+    {
+      "blockId": "copy-env",
+      "type": "command",
+      "label": "复制 .env",
+      "command": { "cmd": "cp", "args": [".env.example", ".env"] }
+    },
+    {
+      "blockId": "open-example",
+      "type": "project-open"
+    },
+    {
+      "blockId": "mock-tool-snippet",
+      "type": "file-snippet",
+      "path": "src/tools/mock-server-tool.ts",
+      "anchor": "@anchor:mock-server-tool"
+    },
+    {
+      "blockId": "run-tests",
+      "type": "command",
+      "label": "运行测试",
+      "command": { "cmd": "npm", "args": ["test"] }
+    },
+    {
+      "blockId": "run-check",
+      "type": "command",
+      "label": "类型检查",
+      "command": { "cmd": "npm", "args": ["run", "check"] }
+    }
+  ]
+}
